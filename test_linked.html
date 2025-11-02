@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,500,1,0" />
+    <title>Evie Sebenick Portfolio</title>
+    <style>
+    :root {
+      --header-font: "JetBrains Mono", monospace;
+      --header-weight: 700;
+      --header-style: normal;
+      --main-font: "Inter", "Helvetica", sans-serif;
+      --main-weight: 400;
+      --main-style: normal;
+      --main-background: #E8F1DA;
+      --main-text: #262E57;
+      --padding: 1rem;
+      --img-scaling: calc(5rem + 10vw);
+      --button-scaling: calc(2rem + 1vw);
+    }
+    body {
+      background: var(--main-background);
+      max-width:1500px;
+      margin: auto;
+      padding: var(--padding);
+    }
+    h1 {
+      font-size: calc(2rem + 2.2vw);
+      font-family: var(--header-font);
+      font-weight: var(--header-weight);
+      font-style: var(--header-style);
+      color: var(--main-text);
+    }
+    h2 {
+      font-size: calc(1.2rem + 1vw);
+      font-family: var(--header-font);
+      font-weight: var(--header-weight);
+      font-style: var(--header-style);
+      color: var(--main-text);
+    }
+    h3 {
+      margin: 0;
+      font-size: calc(1.5rem + 1.5vw);
+      font-family: var(--header-font);
+      font-weight: var(--header-weight);
+      font-style: var(--header-style);
+    }
+    p {
+      margin: 0;
+      font-size: 1.3rem;
+      font-optical-sizing: none;
+      font-family: var(--main-font);
+      font-weight: var(--main-weight);
+      font-style: var(--main-style);
+      line-height: 1.3;
+    }
+    .container {
+      margin: 0 0 2rem 0;
+    }
+    .song {
+      color: var(--main-background);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      height: fit-content;
+      margin: 0 0 1rem 0;
+      border-radius: 0.5rem;
+    }
+
+    .cover {
+      width: var(--img-scaling);
+    }
+
+    img {
+      border-radius: 0.5rem;
+    }
+
+    .yap {
+      color: var(--main-text);
+    }
+
+    .song-text {
+      display: grid;
+      grid-template-rows: 1fr 1fr auto;
+      padding: var(--padding);
+      max-height: calc(var(--img-scaling) - (var(--padding)*2));
+    }
+ 
+    .song-name {
+      align-self:center;
+    }
+
+    .player {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .progressbarbg {
+      position: relative;
+      height: 0.5rem;
+      width: calc(100% - 3px);
+      border: 3px solid var(--main-background);
+      margin: 0rem 0rem 0rem 0rem;
+    }
+
+    .progressbarhitbox {
+      position: relative;
+      top: -0.5rem;
+      height: 1.5rem;
+      width: 100%;
+      background-color: #f000;
+      margin: 0;
+    }
+
+    .progressbarfg {
+      position: absolute;
+      height: 0.5rem;
+      background-color: var(--main-background);
+    }
+
+    button.playbutton {
+      border:none;
+      background-color: transparent;
+      color: var(--main-background);
+      font-size: 2rem;
+      margin: 0 0 0 -0.5rem;
+    }
+
+    .profile-pic {
+      grid-area: image;
+      background-image: url("img/profile-1000.jpg");
+      background-position: center;
+      background-size:cover;
+      border-radius: 0.5rem;
+      width: 100%;
+      aspect-ratio: 1;
+    }
+
+    @media screen and (width >= 1000px) {
+      h3 {
+        margin: 0;
+        font-size: calc(3.5rem);
+        font-family: var(--header-font);
+        font-weight: var(--header-weight);
+        font-style: var(--header-style);
+      }
+      .container {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        gap: var(--padding);
+      }
+      .about-container{
+        display: grid;
+        grid-template-areas:
+          "yap  image"
+          "song image";
+        grid-template-columns: 3fr 2fr;
+        gap: var(--padding);
+      }
+	
+      .song {
+        margin: 0;
+      }
+      .cover {
+        width: 200px;
+      }
+      .song-text{
+        max-height: calc(200px - (var(--padding)*2));
+      }
+      .progressbarbg {
+        position: relative;
+        height: 0.7rem;
+        width: calc(100% - 3px);
+        border: 3px solid var(--main-background);
+        margin: 0rem 0rem 0rem 0rem;
+      }
+
+      .progressbarhitbox {
+        position: relative;
+        top: -0.5rem;
+        height: 1.7rem;
+        width: 100%;
+        background-color: #f000;
+        margin: 0;
+      }
+
+      .progressbarfg {
+        position: absolute;
+        height: 0.7rem;
+        background-color: var(--main-background);
+      }
+
+      button.playbutton {
+        border:none;
+        background-color: transparent;
+        color: var(--main-background);
+        font-size: 3rem;
+        margin: 0 0 0 -0.8rem;
+      }
+      div.profile-pic {
+      aspect-ratio: auto;
+      }
+    }
+    @media screen and (width <= 500px) {
+      p {
+        font-size: 1rem;
+      }
+    }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Hi, I’m Evie Sebenick. I write, produce, and master music.</h1>
+    </header>
+    <main>
+      <h2>SELECTED WORK</h2>
+      <div class="container">
+        <div class="song" style="background: #3E4C4F">
+          <div class="song-text">
+            <h3>City Pop</h3>
+            <p class="song-name">Ski Club - Cool October Night</p>
+            <div class="player">
+              <button data-playing="false" class="playbutton material-symbols-outlined" role="switch" aria-checked="false">&#xe037;</button>
+              <div class="progressbarbg">
+                <div class="progressbarfg" style="width: 0%"></div>
+                <div class="progressbarhitbox"></div>
+                <audio preload="auto" src="audio/cooloctnight-01112025.mp3" crossorigin=""></audio>
+              </div>  
+            </div>
+          </div>
+          <img src="img/cooloctnight-500.jpg" class="cover">
+        </div>
+        <div class="yap">
+          <p>Featuring Caitlin Myers. Songwriting and lyrics by Lesley Price and Andromaeda Mytheria. Production by Lesley Price and me. Recorded instruments by Jack Payne, Lesley Price, Ilya Neverov, Tomas Urnikis, Ana Pshokina, Nicola D’Adamo, Marcello Cassanelli, Spence Elliot, and me. Mixing and mastering by me.</p>
+        </div>
+      </div>
+      <div class="container">
+        <div class="song" style="background: #7B1739">
+          <div class="song-text">
+            <h3>Idol</h3>
+            <p class="song-name">Celestia - Divine Symphony</p>
+            <div class="player">
+              <button data-playing="false" class="playbutton material-symbols-outlined" role="switch" aria-checked="false">&#xe037;</button>
+              <div class="progressbarbg">
+                <div class="progressbarfg" style="width: 0%"></div>
+                <div class="progressbarhitbox"></div>
+                <audio preload="auto" src="audio/divinesymph-01112025.mp3" crossorigin=""></audio>
+              </div>  
+            </div>
+          </div>
+          <img src="img/divinesymph-500.jpg" class="cover">
+        </div>
+        <div class="yap">
+          <p>Songwriting and lyrics by CELESTIA. Violins by Samantha Bounkeua. Cellos by Kaitlin Grady. Production, programming, recorded instruments except violin and cello, mixing, and mastering by me.</p>
+        </div>
+      </div>
+      <div class="container">
+        <div class="song" style="background: #2A476E">
+          <div class="song-text">
+            <h3>Hyperpop</h3>
+            <p class="song-name">webcage - bleed</p>
+            <div class="player">
+              <button data-playing="false" class="playbutton material-symbols-outlined" role="switch" aria-checked="false">&#xe037;</button>
+              <div class="progressbarbg">
+                <div class="progressbarfg" style="width: 0%"></div>
+                <div class="progressbarhitbox"></div>
+                <audio preload="auto" src="audio/bleed-01112025.mp3" crossorigin=""></audio>
+              </div>  
+            </div>
+          </div>
+          <img src="img/bleed-500.jpg" class="cover">
+        </div>
+        <div class="yap">
+          <p>Featuring saoirse dream, Can of Bliss, scooter boi, and bh. Production by saoirse dream, st1cks, wishlane, trndytrndy. Additional production, mixing, and mastering by me.</p>
+        </div>
+      </div>
+      <div class="container">
+        <div class="song" style="background: #542064">
+          <div class="song-text">
+            <h3>Nu-Disco</h3>
+            <p class="song-name">Penelope Aveline - Disconnect</p>
+            <div class="player">
+              <button data-playing="false" class="playbutton material-symbols-outlined" role="switch" aria-checked="false">&#xe037;</button>
+              <div class="progressbarbg">
+                <div class="progressbarfg" style="width: 0%"></div>
+                <div class="progressbarhitbox"></div>
+                <audio preload="auto" src="audio/disconnect-01112025.mp3" crossorigin=""></audio>
+              </div>  
+            </div>
+          </div>
+          <img src="img/disconnect-500.jpg" class="cover">
+        </div>
+        <div class="yap">
+          <p>From my solo project. Songwriting, lyrics, programming, production, and recorded instruments by me. Vocals made in Vocaloid-like software, Synthesizer V, using ANRI voicebank.</p>
+        </div>
+      </div>
+      <div class="container">
+        <div class="song" style="background: #205333">
+          <div class="song-text">
+            <h3>Indie Pop</h3>
+            <p class="song-name">Garden Patrol - Rayotek Girl</p>
+            <div class="player">
+              <button data-playing="false" class="playbutton material-symbols-outlined" role="switch" aria-checked="false">&#xe037;</button>
+              <div class="progressbarbg">
+                <div class="progressbarfg" style="width: 0%"></div>
+                <div class="progressbarhitbox"></div>
+                <audio preload="auto" src="audio/rayotek-01112025.mp3" crossorigin=""></audio>
+              </div>  
+            </div>
+          </div>
+          <img src="img/rayotek-500.jpg" class="cover">
+        </div>
+        <div class="yap">
+          <p>Songwriting by Lucy Soares, Jesus Barriga, and Lesley Price. Lyrics by Lucy Soares and Jesus Barriga. Recorded instruments by Lucy Soares, Jesus Barriga, Sebastian Jiminez, and Lesley Price. Recording engineering by Riley Landrum. Mixing by Zach Sprauer and me. Mastering by me.</p>
+        </div>
+      </div>
+      <h2>ABOUT ME</h2>
+      <div class="about-container">
+        <div class="yap" style="grid-area: yap;">
+          <p style="margin-bottom: 0.6rem">I’m an independent music producer in Chicago with over ten years of experience.
+          I love helping artists achieve the sound they hear in their head, whether it’s with a light touch or with heavier production work.
+          I play bass, guitars, keys, and percussion. In addition, I’m a recording, mixing, and mastering engineer. I’m comfortable with any genre, especially pop, electronic, and alternative.</p>
+          <p style="margin-bottom: 1rem">Here’s a reel of more production—everything is done by me:</p>
+        </div>
+        <div class="song" style="background: #BCE1A1; grid-area:song;">
+          <div class="song-text">
+            <h3 style="color: var(--main-text)">Demo Reel</h3>
+            <p class="song-name" style="color: var(--main-text)">Synth Funk, Pop Rock, French House</p>
+            <div class="player">
+              <button data-playing="false" class="playbutton material-symbols-outlined" role="switch" aria-checked="false" style="color: var(--main-text)">&#xe037;</button>
+              <div class="progressbarbg" style="border-color: var(--main-text)">
+                <div class="progressbarfg" style="width: 0%; background-color: var(--main-text)"></div>
+                <div class="progressbarhitbox"></div>
+                <audio preload="auto" src="audio/reel-01112025.mp3" crossorigin=""></audio>
+              </div>  
+            </div>
+          </div>
+          <img src="img/reel-500.jpg" class="cover">
+        </div>
+        <div class:"profile-pic"></div>
+      </div>
+    </main>
+  <script>
+  // for cross browser
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  const audioContext = new AudioContext();
+
+  const players = document.getElementsByClassName("player");
+  songProgress = [];
+  track = [];
+  track_audio = [];
+  playButton = [];
+  progressBar = [];
+  progressBarBG = [];
+  progressBarHitbox = [];
+  for (let i = 0; i < players.length; i++) {
+    playButton[i] = players[i].querySelector(".playbutton");
+    progressBar[i] = players[i].querySelector(".progressbarbg").querySelector(".progressbarfg");
+    progressBarBG[i] = players[i].querySelector(".progressbarbg")
+    progressBarHitbox[i] = players[i].querySelector(".progressbarbg").querySelector(".progressbarhitbox");
+    track[i] = players[i].querySelector("audio");
+    track_audio[i] = audioContext.createMediaElementSource(track[i]);
+    track_audio[i].connect(audioContext.destination);
+    songProgress[i] = 0;
+    playButton[i].addEventListener("click", function(){
+      // check if context is in suspended state (autoplay policy)
+      if (audioContext.state === 'suspended') {
+        audioContext.resume();
+      }
+
+      if (this.dataset.playing === 'false') {
+        track[i].play();
+        this.dataset.playing = true;
+        playButton[i].innerHTML = "&#xe034;";
+        // if track is playing pause it
+      } else if (this.dataset.playing === 'true') {
+        track[i].pause();
+        this.dataset.playing = false;
+        playButton[i].innerHTML = "&#xe037;";
+      }
+    });
+    track[i].addEventListener(
+      "ended",
+      () => {
+        playButton[i].dataset.playing = "false";
+        playButton[i].setAttribute("aria-checked", "false");
+        playButton[i].innerHTML = "&#xe037;";
+      },
+      false
+    );
+
+    track[i].addEventListener("timeupdate", updateProgressBar);
+    function updateProgressBar(e) {
+      if (playButton[i].dataset.playing === "true") {
+        const { duration, currentTime } = e.srcElement;
+        songProgress[i] = (currentTime / duration) * 100;
+        progressBar[i].style.width = `${songProgress[i]}` + "%";
+      }
+    }
+
+    progressBarHitbox[i].addEventListener("click", function () {
+      const test = event.offsetX / progressBarBG[i].clientWidth;
+      track[i].currentTime = test * track[i].duration;
+      progressBar[i].style.width = `${test}` * 100 + "%";
+    });
+  }
+  </script>
+</body>
+</html>
