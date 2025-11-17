@@ -100,8 +100,8 @@
 
     .player {
       display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 1rem;
+      grid-template-columns: auto auto 1fr;
+      gap: 0.2rem;
       align-items: center;
       margin: 0 0 -5px 0;
     }
@@ -111,7 +111,7 @@
       height: 0.5rem;
       width: calc(100% - 6px);
       border: 3px solid var(--main-background);
-      margin: 0rem 0rem 0rem 0rem;
+      margin: 0;
     }
 
     .progressbarhitbox {
@@ -130,7 +130,7 @@
       background-color: var(--main-background);
     }
 
-    button.playbutton {
+    .button {
       border:none;
       background-color: transparent;
       color: var(--main-background);
@@ -186,7 +186,7 @@
         height: 0.7rem;
         width: calc(100% - 6px);
         border: 3px solid var(--main-background);
-        margin: 0rem 0rem 0rem 0rem;
+        margin: 0;
       }
 
       .progressbarhitbox {
@@ -204,7 +204,7 @@
         background-color: var(--main-background);
       }
 
-      button.playbutton {
+      .button {
         border:none;
         background-color: transparent;
         color: var(--main-background);
@@ -245,7 +245,8 @@
             <h3 style="color: var(--main-text)">Demo Reel</h3>
             <p class="song-name" style="color: var(--main-text)">Synth Funk, Pop Rock, French House</p>
             <div class="player">
-              <button data-playing="false" class="playbutton material-symbols-outlined" role="switch" aria-checked="false" style="color: var(--main-text)">&#xe037;</button>
+              <button class="rewindbutton button material-symbols-outlined" role="button" style="color: var(--main-text)">&#xe045;</button>
+              <button data-playing="false" class="playbutton button material-symbols-outlined" role="switch" aria-checked="false" style="color: var(--main-text)">&#xe037;</button>
               <div class="progressbarbg" style="border-color: var(--main-text)">
                 <div class="progressbarfg" style="width: 0%; background-color: var(--main-text)"></div>
                 <div class="progressbarhitbox"></div>
@@ -264,7 +265,8 @@
             <h3>City Pop</h3>
             <p class="song-name">Ski Club - Cool October Night</p>
             <div class="player">
-              <button data-playing="false" class="playbutton material-symbols-outlined" role="switch" aria-checked="false">&#xe037;</button>
+              <button class="rewindbutton button material-symbols-outlined" role="button">&#xe045;</button>
+              <button data-playing="false" class="playbutton button material-symbols-outlined" role="switch" aria-checked="false">&#xe037;</button>
               <div class="progressbarbg">
                 <div class="progressbarfg" style="width: 0%"></div>
                 <div class="progressbarhitbox"></div>
@@ -284,7 +286,8 @@
             <h3>Idol</h3>
             <p class="song-name">Celestia - Divine Symphony</p>
             <div class="player">
-              <button data-playing="false" class="playbutton material-symbols-outlined" role="switch" aria-checked="false">&#xe037;</button>
+              <button class="rewindbutton button material-symbols-outlined" role="button">&#xe045;</button>
+              <button data-playing="false" class="playbutton button material-symbols-outlined" role="switch" aria-checked="false">&#xe037;</button>
               <div class="progressbarbg">
                 <div class="progressbarfg" style="width: 0%"></div>
                 <div class="progressbarhitbox"></div>
@@ -304,7 +307,8 @@
             <h3>Hyperpop</h3>
             <p class="song-name">webcage - bleed</p>
             <div class="player">
-              <button data-playing="false" class="playbutton material-symbols-outlined" role="switch" aria-checked="false">&#xe037;</button>
+              <button class="rewindbutton button material-symbols-outlined" role="button">&#xe045;</button>
+              <button data-playing="false" class="playbutton button material-symbols-outlined" role="switch" aria-checked="false">&#xe037;</button>
               <div class="progressbarbg">
                 <div class="progressbarfg" style="width: 0%"></div>
                 <div class="progressbarhitbox"></div>
@@ -324,7 +328,8 @@
             <h3>Nu-Disco</h3>
             <p class="song-name">Penelope Aveline - Disconnect</p>
             <div class="player">
-              <button data-playing="false" class="playbutton material-symbols-outlined" role="switch" aria-checked="false">&#xe037;</button>
+              <button class="rewindbutton button material-symbols-outlined" role="button">&#xe045;</button>
+              <button data-playing="false" class="playbutton button material-symbols-outlined" role="switch" aria-checked="false">&#xe037;</button>
               <div class="progressbarbg">
                 <div class="progressbarfg" style="width: 0%"></div>
                 <div class="progressbarhitbox"></div>
@@ -344,7 +349,8 @@
             <h3>Indie Pop</h3>
             <p class="song-name">Garden Patrol - Rayotek Girl</p>
             <div class="player">
-              <button data-playing="false" class="playbutton material-symbols-outlined" role="switch" aria-checked="false">&#xe037;</button>
+              <button class="rewindbutton button material-symbols-outlined" role="button">&#xe045;</button>
+              <button data-playing="false" class="playbutton button material-symbols-outlined" role="switch" aria-checked="false">&#xe037;</button>
               <div class="progressbarbg">
                 <div class="progressbarfg" style="width: 0%"></div>
                 <div class="progressbarhitbox"></div>
@@ -369,11 +375,13 @@
   track = [];
   track_audio = [];
   playButton = [];
+  rewindButton = [];
   progressBar = [];
   progressBarBG = [];
   progressBarHitbox = [];
   for (let i = 0; i < players.length; i++) {
     playButton[i] = players[i].querySelector(".playbutton");
+    rewindButton[i] = players[i].querySelector(".rewindbutton");
     progressBar[i] = players[i].querySelector(".progressbarbg").querySelector(".progressbarfg");
     progressBarBG[i] = players[i].querySelector(".progressbarbg")
     progressBarHitbox[i] = players[i].querySelector(".progressbarbg").querySelector(".progressbarhitbox");
@@ -402,6 +410,11 @@
         playButton[i].innerHTML = "&#xe037;";
       }
     });
+    rewindButton[i].addEventListener("click", function(){
+      track[i].currentTime	 = 0;
+      progressBar[i].style.width = "0%";
+    });
+
     track[i].addEventListener(
       "ended",
       () => {
