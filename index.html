@@ -386,12 +386,16 @@
       if (audioContext.state === 'suspended') {
         audioContext.resume();
       }
-
       if (this.dataset.playing === 'false') {
+        playButton.forEach((element) => {
+          element.innerHTML = "&#xe037;";
+          element.dataset.playing = false;
+        });
+        track.forEach((element) => element.pause());
         track[i].play();
         this.dataset.playing = true;
         playButton[i].innerHTML = "&#xe034;";
-        // if track is playing pause it
+      // if track is playing pause it
       } else if (this.dataset.playing === 'true') {
         track[i].pause();
         this.dataset.playing = false;
