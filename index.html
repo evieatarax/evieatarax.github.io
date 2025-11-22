@@ -31,7 +31,7 @@
     }
     body {
       background: var(--main-background);
-      max-width:1500px;
+      max-width:1200px;
       margin: auto;
       padding: var(--padding);
     }
@@ -61,7 +61,7 @@
     }
     p {
       margin: 0;
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       font-optical-sizing: none;
       font-family: var(--main-font);
       font-weight: var(--main-weight);
@@ -79,31 +79,25 @@
       margin: 0 0 1rem 0;
       border-radius: 0.5rem;
     }
-
     .cover {
       width: var(--img-scaling);
     }
-
     img {
       border-radius: 0.5rem;
     }
-
     .yap {
       color: var(--main-text);
     }
-
     .song-text {
       display: grid;
       grid-template-rows: 1fr 1fr auto;
       padding: var(--padding);
       max-height: calc(var(--img-scaling) - (var(--padding)*2));
     }
- 
     .song-name {
       align-self:center;
       margin: -10px 0 -10px 0;
     }
-
     .player {
       display: grid;
       grid-template-columns: auto auto 1fr;
@@ -111,7 +105,6 @@
       align-items: center;
       margin: 0 0 -5px 0;
     }
-
     .progressbarbg {
       position: relative;
       height: 0.5rem;
@@ -119,7 +112,6 @@
       border: 3px solid var(--main-background);
       margin: 0;
     }
-
     .progressbarhitbox {
       position: relative;
       top: -0.5rem;
@@ -129,13 +121,11 @@
       margin: 0;
       cursor: pointer;
     }
-
     .progressbarfg {
       position: absolute;
       height: 0.5rem;
       background-color: var(--main-background);
     }
-
     .button {
       border:none;
       background-color: transparent;
@@ -144,7 +134,6 @@
       margin: 0 0 0 -0.5rem;
       cursor: pointer;
     }
-
     .profile-pic {
       grid-area: image;
       background-image: url("img/profile-1000.jpg");
@@ -154,7 +143,6 @@
       width: 100%;
       aspect-ratio: 1;
     }
-
     @media screen and (width >= 1000px) {
       h3 {
         margin: 0;
@@ -177,7 +165,6 @@
         grid-template-columns: 3fr 2fr;
         gap: var(--padding);
       }
-	
       .song {
         margin: 0;
       }
@@ -194,7 +181,6 @@
         border: 3px solid var(--main-background);
         margin: 0;
       }
-
       .progressbarhitbox {
         position: relative;
         top: -0.5rem;
@@ -203,13 +189,11 @@
         background-color: #f000;
         margin: 0;
       }
-
       .progressbarfg {
         position: absolute;
         height: 0.7rem;
         background-color: var(--main-background);
       }
-
       .button {
         border:none;
         background-color: transparent;
@@ -260,7 +244,7 @@
               </div>  
             </div>
           </div>
-          <img src="img/reel-200.jpg" class="cover">
+          <img srcset="img/reel-200.jpg 200w, img/reel-500.jpg 500w" src="img/reel-200.jpg" class="cover">
         </div>
         <div class="profile-pic"></div>
       </div>
@@ -280,7 +264,7 @@
               </div>  
             </div>
           </div>
-          <img src="img/cooloctnight-200.jpg" class="cover">
+          <img srcset="img/cooloctnight-200.jpg 200w, img/cooloctnight-500.jpg 500w" src="img/cooloctnight-200.jpg" class="cover">
         </div>
         <div class="yap">
           <p>Featuring Caitlin Myers. Songwriting and lyrics by Lesley Price and Andromaeda Mytheria. Production by Lesley Price and me. Recorded instruments by Jack Payne, Lesley Price, Ilya Neverov, Tomas Urnikis, Ana Pshokina, Nicola D’Adamo, Marcello Cassanelli, Spence Elliot, and me. Mixing and mastering by&nbsp;me.</p>
@@ -301,7 +285,7 @@
               </div>  
             </div>
           </div>
-          <img src="img/divinesymph-200.jpg" class="cover">
+          <img srcset="img/divinesymph-200.jpg 200w, img/divinesymph-500.jpg 500w" src="img/divinesymph-200.jpg" class="cover">
         </div>
         <div class="yap">
           <p>Songwriting and lyrics by CELESTIA. Violins by Samantha Bounkeua. Cellos by Kaitlin Grady. Production, programming, recorded instruments except violin and cello, mixing, and mastering by&nbsp;me.</p>
@@ -322,7 +306,7 @@
               </div>  
             </div>
           </div>
-          <img src="img/bleed-200.jpg" class="cover">
+          <img srcset="img/bleed-200.jpg 200w, img/bleed-500.jpg 500w" src="img/bleed-200.jpg" class="cover">
         </div>
         <div class="yap">
           <p>Featuring saoirse dream, Can of Bliss, scooter boi, and bh. Production by saoirse dream, st1cks, wishlane, trndytrndy. Additional production, mixing, and mastering by&nbsp;me.</p>
@@ -343,7 +327,7 @@
               </div>  
             </div>
           </div>
-          <img src="img/disconnect-200.jpg" class="cover">
+          <img srcset="img/disconnect-200.jpg 200w, img/disconnect-500.jpg 500w" src="img/disconnect-200.jpg" class="cover">
         </div>
         <div class="yap">
           <p>From my solo project. Songwriting, lyrics, programming, production, and recorded instruments by me. Vocals made in Synthesizer V, using the voicebank&nbsp;ANRI.</p>
@@ -364,7 +348,7 @@
               </div>  
             </div>
           </div>
-          <img src="img/rayotek-200.jpg" class="cover">
+          <img srcset="img/rayotek-200.jpg 200w, img/rayotek-500.jpg 500w" src="img/rayotek-200.jpg" class="cover">
         </div>
         <div class="yap">
           <p>Songwriting by Lucy Soares, Jesus Barriga, and Lesley Price. Lyrics by Lucy Soares and Jesus Barriga. Recorded instruments by Lucy Soares, Jesus Barriga, Sebastian Jiminez, and Lesley Price. Recording engineering by Riley Landrum. Mixing by Zach Sprauer and me. Mastering by&nbsp;me.</p>
@@ -375,7 +359,6 @@
   // for cross browser
   const AudioContext = window.AudioContext || window.webkitAudioContext;
   const audioContext = new AudioContext();
-
   const players = document.getElementsByClassName("player");
   songProgress = [];
   track = [];
@@ -417,10 +400,9 @@
       }
     });
     rewindButton[i].addEventListener("click", function(){
-      track[i].currentTime	 = 0;
+      track[i].currentTime = 0;
       progressBar[i].style.width = "0%";
     });
-
     track[i].addEventListener(
       "ended",
       () => {
@@ -430,7 +412,6 @@
       },
       false
     );
-
     track[i].addEventListener("timeupdate", updateProgressBar);
     function updateProgressBar(e) {
       if (playButton[i].dataset.playing === "true") {
@@ -439,7 +420,6 @@
         progressBar[i].style.width = `${songProgress[i]}` + "%";
       }
     }
-
     progressBarHitbox[i].addEventListener("click", function () {
       const test = event.offsetX / progressBarBG[i].clientWidth;
       track[i].currentTime = test * track[i].duration;
