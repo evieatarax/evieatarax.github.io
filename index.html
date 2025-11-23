@@ -363,6 +363,7 @@
   songProgress = [];
   track = [];
   track_audio = [];
+  trackGain = [];
   playButton = [];
   rewindButton = [];
   progressBar = [];
@@ -376,7 +377,9 @@
     progressBarHitbox[i] = players[i].querySelector(".progressbarbg").querySelector(".progressbarhitbox");
     track[i] = players[i].querySelector("audio");
     track_audio[i] = audioContext.createMediaElementSource(track[i]);
-    track_audio[i].connect(audioContext.destination);
+    trackGain[i] = audioContext.createGain();
+    trackGain[i].gain.setValueAtTime(1, 0);
+    track_audio[i].connect(trackGain[i]).connect(audioContext.destination);
     songProgress[i] = 0;
     playButton[i].addEventListener("click", function(){
       // check if context is in suspended state (autoplay policy)
@@ -389,6 +392,7 @@
           element.dataset.playing = false;
         });
         track.forEach((element) => element.pause());
+        trackGain.forEach((element) => element.gain.setValueAtTime(1, audioContext.currentTime));
         track[i].play();
         this.dataset.playing = true;
         playButton[i].innerHTML = "&#xe034;";
@@ -397,6 +401,7 @@
         track[i].pause();
         this.dataset.playing = false;
         playButton[i].innerHTML = "&#xe037;";
+        trackGain.forEach((element) => element.gain.setValueAtTime(0, audioContext.currentTime));
       }
     });
     rewindButton[i].addEventListener("click", function(){
